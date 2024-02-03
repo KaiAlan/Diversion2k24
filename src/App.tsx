@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import NavBar from "./components";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="w-full min-h-screen dark:bg-gray-900">
+
+        {/* Navbar parent section */}
+        <nav className="flex justify-center items-center w-full h-20 z-20 bg-white sticky top-0">
+          <NavBar />
+        </nav>
+
+        {/* Outlet renders children paths i.e, in our case the paths in navbar */}
+        <Outlet />
+        
+        <hr className="border-gray-500"></hr>
+        {/* Footer parent section */}
+        <footer className="container">
+          <Footer />
+        </footer>
+
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
