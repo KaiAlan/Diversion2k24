@@ -1,5 +1,5 @@
 import About from "../About/About";
-
+// not to be used 
 function Home() {
   return (
     <div className="bg-white dark:bg-gray-900">

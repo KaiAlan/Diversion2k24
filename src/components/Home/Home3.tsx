@@ -8,8 +8,8 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7 lg:col-span-6">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
-              Empowering <span className="text-green-600"> Agriculture </span>{" "}
-              with Tech Innovations
+            Revolutionizing <span className="text-green-600"> Agriculture </span>{" "}
+            with our All-in-One AgriTech Ecosystem
             </h1>
             <p className="mt-6 text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300">
               Join the green revolution with our eco-friendly technologies.

@@ -1,9 +1,10 @@
-import Component from '../About/Services'
 
 const Docs = () => {
   return (
     <>
-      <Component />
+      <div className="flex justify-center items-center">
+        Docs
+      </div>
     </>
   )
 }
