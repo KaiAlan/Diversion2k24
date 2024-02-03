@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import Prediction from "@/components/NavBar/Services/Prediction";
 import Contact from "@/components/NavBar/Services/Contact";
-import Transportation from "@/components/NavBar/Services/Transportation";
+// import Transportation from "@/components/NavBar/Services/Transportation";
 import ComunityForum from "@/components/NavBar/ComunityForum/ComunityForum";
 import Home from "@/components/Home/Home";
 import About from "@/components/About/About";
