@@ -1,7 +1,10 @@
 import About from "../About/About";
 import img3 from "./img3.jpg";
+import { useAuth0 } from "@auth0/auth0-react";
+
 // To be used 
 function Home2() {
+  const { loginWithRedirect } = useAuth0();
   return (
     <div className="bg-white dark:bg-gray-800 mt-9">
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">

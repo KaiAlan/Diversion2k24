@@ -1,6 +1,9 @@
 import About from "../About/About";
+import { useAuth0 } from "@auth0/auth0-react";
+
 // not to be used 
 function Home() {
+  const { loginWithRedirect } = useAuth0();
   return (
     <div className="bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto p-6 sm:p-10 lg:p-16">
@@ -12,7 +15,7 @@ function Home() {
             Seamless Blockchain Supply Chains, Smart E-Commerce, and Cutting-Edge AI for Healthier Crops and Bountiful Yields. Experience the Future of Farming Today.
           </p>
           <div className="mt-10 flex justify-center gap-5 flex-wrap">
-            <button className="text-white bg-green-500 hover:bg-green-700 font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => loginWithRedirect()} className="text-white bg-green-500 hover:bg-green-700 font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105">
               Get Started
             </button>
             <button className="text-green-600 bg-transparent hover:bg-green-100 font-semibold py-3 px-6 rounded-lg border border-green-600 transition-all duration-300 ease-in-out">

@@ -10,6 +10,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
+import img from './user.png';
+
+import { useAuth0 } from "@auth0/auth0-react";
+
 import {
   DropdownMenuTrigger,
   DropdownMenuLabel,
@@ -24,6 +28,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "../mode-toggle";
 
 const NavBar = () => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   return (
     <nav className="flex justify-between items-start w-3/5 font-semibold dark:bg-gray-900">
       <div className="font-black text-black dark:bg-gray-900 dark:text-white">LOGO</div>
@@ -95,27 +100,54 @@ const NavBar = () => {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <header className="flex h-14 items-center border-b gap-x-3 bg-gray-100/40 px-6 dark:bg-gray-800/40">
+      <header className="flex h-14 items-center border-b gap-x-3 px-6 dark:bg-gray-800/40">
         <ModeToggle />
         <div className="ml-auto flex items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className="rounded-full border border-gray-200 w-8 h-8 dark:border-gray-800"
+                className="rounded-full border  w-8 h-8 dark:border-gray-800"
                 size="icon"
                 variant="ghost"
               >
-                <img
-                  alt="Avatar"
+                {
+                  isAuthenticated ? (
+                    <img
+                  alt={user?.name}
                   className="rounded-full"
                   height="32"
-                  src="/placeholder.svg"
+                  src={user?.picture}
                   style={{
                     aspectRatio: "32/32",
                     objectFit: "cover",
                   }}
                   width="32"
                 />
+                  ) : (
+                    <img
+                  alt="Avatar"
+                  className="rounded-full"
+                  height="32"
+                  src={img}
+                  style={{
+                    aspectRatio: "32/32",
+                    objectFit: "cover",
+                  }}
+                  width="32"
+                />
+                  )
+                }
+                {/* <img
+                  alt="Avatar"
+                  className="rounded-full"
+                  height="32"
+                  src={img}
+                  style={{
+                    aspectRatio: "32/32",
+                    objectFit: "cover",
+                  }}
+                  width="32"
+                /> */}
                 <span className="sr-only">Toggle user menu</span>
               </Button>
             </DropdownMenuTrigger>
