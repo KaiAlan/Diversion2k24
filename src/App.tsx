@@ -8,7 +8,7 @@ function App() {
       <main className="w-full min-h-screen dark:bg-gray-900">
 
         {/* Navbar parent section */}
-        <nav className="flex justify-center items-center w-full h-20 z-20 bg-white sticky top-0">
+        <nav className="flex justify-center items-center w-full h-20 z-20 bg-white dark:bg-gray-900 sticky top-0">
           <NavBar />
         </nav>
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
+import data from "./solution.json";
 
 import {
   Select,
@@ -17,7 +18,6 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const SelectCrop = () => {
-
   return (
     <Select>
       <SelectTrigger className="w-[180px] dark:text-white">
@@ -38,8 +38,27 @@ const SelectCrop = () => {
 const Prediction = () => {
   const [file, setFile] = useState<File>();
   const [previewImage, setPreviewImage] = useState<string>("");
-  const [diseaseName, setDiseaseName] = useState("");
-  const [detecting, setDetecting ] = useState(false);
+  const [diseaseName, setDiseaseName] = useState<string>();
+  const [detecting, setDetecting] = useState(false);
+  const [solution, setSolution] = useState<any>();
+  // console.log(data.Pepper__bell___Bacterial_spot);
+
+  // data.Pepper__bell___Bacterial_spot.Treatment.map((res) => console.log(res));
+
+  function traverseJsonData(diseaseName: string, data: any): string {
+    for (const key in data) {
+      if (key === diseaseName) {
+        setSolution(data[key].Treatment);
+      }
+    }
+    return diseaseName;
+  }
+
+  // if(diseaseName){
+  //   // setSolution(traverseJsonData(diseaseName));
+  //   traverseJsonData(diseaseName);
+  //   // console.log(`data.${diseaseName}.Treatment`)
+  // }
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -61,8 +80,15 @@ const Prediction = () => {
                   setPreviewImage(URL.createObjectURL(acceptedFiles[0]));
                   console.log(acceptedFiles);
                 }}
+                maxSize={2000000}
+                // accept={'image/jpg , image/jpeg'}
               >
-                {({ getRootProps, getInputProps, isDragActive }) => (
+                {({
+                  getRootProps,
+                  getInputProps,
+                  isDragActive,
+                  fileRejections,
+                }) => (
                   <section className="bg-transparent">
                     <div {...getRootProps()}>
                       <input {...getInputProps()} />
@@ -78,6 +104,7 @@ const Prediction = () => {
                           </li>
                         </ol>
                       )}
+                      {fileRejections.length > 0 && <p>File Rejected</p>}
                     </div>
                   </section>
                 )}
@@ -110,7 +137,7 @@ const Prediction = () => {
                   );
 
                   // Update kar disease name based on the response;
-                  if(response.data.class === 'leaf') {
+                  if (response.data.class === "leaf") {
                     try {
                       const response = await axios.post(
                         "http://localhost:4444/predict",
@@ -122,18 +149,20 @@ const Prediction = () => {
                         }
                       );
                       setDetecting(false);
-    
+
                       // Update kar disease name based on the response :)
                       setDiseaseName(response.data.class);
                     } catch (error) {
+                      setDetecting(false);
                       console.error("Error uploading file:", error);
                       alert("Error processing file");
                     }
                   } else {
-                    setDetecting(false)
-                    setDiseaseName('Not a leaf');
+                    setDetecting(false);
+                    setDiseaseName("Not a leaf");
                   }
                 } catch (error) {
+                  setDetecting(false);
                   console.error("Error uploading file:", error);
                   alert("Error processing file");
                 }
@@ -163,13 +192,14 @@ const Prediction = () => {
                 Remove
               </button>
               <p className="mt-4 text-gray-500 dark:text-zinc-900">
-                Disease Name: {
-                  detecting ? (<span>Detecting...</span>)
-                  : (
-                    <span className="font-bold">{
-                      diseaseName || 'Please upload an image first'}</span>
-                  )
-                }
+                Disease Name:{" "}
+                {detecting ? (
+                  <span>Detecting...</span>
+                ) : (
+                  <span className="font-bold">
+                    {diseaseName || "Please upload an image first"}
+                  </span>
+                )}
               </p>
             </div>
           ) : (
@@ -191,11 +221,19 @@ const Prediction = () => {
         <h2 className="text-2xl font-bold text-center mb-4">
           Recommended Solution
         </h2>
-        <p className="text-gray-500 dark:text-zinc-900 font-semibold">
-          Fusarium wilt can be managed by using resistant varieties, crop
-          rotation, and soil solarization. Avoid planting susceptible crops in
-          infested fields.
-        </p>
+        {diseaseName && (
+          <button
+            onClick={() => traverseJsonData(diseaseName, data)}
+            className="px-4 py-2 bg-blue-600 text-white rounded-md"
+          >
+            recomendation
+          </button>
+        )}
+        {solution && (
+          <p className="text-gray-500 dark:text-zinc-900 flex gap-3">
+            {solution}
+          </p>
+        )}
       </section>
       <section className="w-full max-w-2xl p-4 my-4 bg-white bg-opacity-25 shadow-md rounded-md border-2 border-white backdrop-blur-[101.20px] z-10">
         <h2 className="text-2xl font-bold text-center mb-4">Feedback</h2>

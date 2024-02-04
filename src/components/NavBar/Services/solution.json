@@ -1,0 +1,106 @@
+{
+  "Pepper__bell___Bacterial_spot": {
+    "Treatment": [
+      "Remove infected parts: Remove and discard any infected plant parts.",
+      "Spray with fungicide: Use organic or copper-based fungicides.",
+      "Practice crop rotation: Avoid planting the same species in the same location for at least three years.",
+      "Treat seeds: Use bleach or hot water treatment on seeds.",
+      "Mulch plants: Mulch deeply with organic material like newspaper covered with straw or grass clippings."
+    ]
+  },
+  "Pepper__bell___healthy": {
+    "Treatment": ["Your plant is healthy."]
+  },
+  "Potato___Early_blight": {
+    "Treatment": [
+      "Prune or stake plants for air circulation.",
+      "Disinfect pruning shears with bleach.",
+      "Keep soil clean, add organic compost.",
+      "Use drip irrigation to keep foliage dry.",
+      "Apply copper-based fungicides early or when disease appears."
+    ]
+  },
+  "Potato___Late_blight": {
+    "Treatment": [
+      "Plant resistant cultivars.",
+      "Remove volunteers and space plants for air circulation.",
+      "Water in the early morning hours, avoid overhead irrigation.",
+      "Destroy tomato and potato debris after harvest."
+    ]
+  },
+  "Potato___healthy": {
+    "Treatment": ["Your plant is healthy."]
+  },
+  "Tomato_Bacterial_spot": {
+    "Treatment": [
+      "Infected plants cannot be cured.",
+      "Remove and dispose of symptomatic plants.",
+      "Prevent in the future by using pathogen-free seed or transplants."
+    ]
+  },
+  "Tomato_Early_blight": {
+    "Treatment": [
+      "Prune or stake plants for air circulation.",
+      "Disinfect pruning shears with bleach.",
+      "Keep soil clean, add organic compost.",
+      "Use drip irrigation to keep foliage dry.",
+      "Apply copper-based fungicides early or when disease appears."
+    ]
+  },
+  "Tomato_Late_blight": {
+    "Treatment": [
+      "Plant resistant cultivars.",
+      "Remove volunteers and space plants for air circulation.",
+      "Water in the early morning hours, avoid overhead irrigation.",
+      "Destroy tomato and potato debris after harvest."
+    ]
+  },
+  "Tomato_Leaf_Mold": {
+    "Treatment": [
+      "Let plants air out and dry.",
+      "Water in early morning to keep leaves dry.",
+      "Use drip irrigation or soak watering methods."
+    ]
+  },
+  "Tomato_Septoria_leaf_spot": {
+    "Treatment": [
+      "Remove diseased leaves, stake or cage plants for better airflow.",
+      "Mulch around the base of plants.",
+      "Avoid overhead watering, control weeds.",
+      "Use crop rotation, do not plant tomatoes in the same location for 1-2 years."
+    ]
+  },
+  "Tomato_Spider_mites_Two_spotted_spider_mite": {
+    "Treatment": [
+      "Spray with water to dislodge mites.",
+      "Use insecticidal soap or homemade remedies.",
+      "Apply neem oil as a pest repellent."
+    ]
+  },
+  "Tomato__Target_Spot": {
+    "Treatment": [
+      "Remove infected leaves, improve airflow.",
+      "Water in the morning, apply mulch.",
+      "Use fungicides at regular intervals.",
+      "Avoid overhead irrigation, inspect seedlings for symptoms."
+    ]
+  },
+  "Tomato__Tomato_YellowLeaf__Curl_Virus": {
+    "Treatment": [
+      "Cover symptomatic plants with a plastic bag and tie at the stem.",
+      "Cut off the plant below the bag and allow it to desiccate for 1-2 days.",
+      "Dispose of the plant to remove virus reservoir and trap whiteflies."
+    ]
+  },
+  "Tomato__Tomato_mosaic_virus": {
+    "Treatment": [
+      "Monitor for symptoms and remove infected plants.",
+      "Remove debris and avoid working in the garden when wet.",
+      "Avoid using tobacco, spray with a baking soda solution.",
+      "Soak tools in a bleach solution."
+    ]
+  },
+  "Tomato_healthy": {
+    "Treatment": ["Your plant is healthy."]
+  }
+}

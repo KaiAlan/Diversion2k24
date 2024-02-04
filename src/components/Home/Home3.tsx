@@ -1,6 +1,6 @@
 import About from "../About/About";
 import img3 from "./img3.jpg";
-
+// Not to be used
 function Home() {
   return (
     <div className="bg-white dark:bg-gray-800 mt-9">
