@@ -15,6 +15,8 @@ import Docs from "@/components/Docs/Docs";
 import Transparency from "@/components/SupplyChain/Transparency";
 import Authentication from "@/components/SupplyChain/Authentication";
 import Home2 from '@/components/Home/Hom2';
+import Home3 from "@/components/Home/Home3";
+import Home from "@/components/Home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +27,8 @@ export const router = createBrowserRouter([
       //Home Page
       {
         path: "/",
-        element: <Home2 />,
+        element: <Home />,
+        // element: <Home2 />,
       },
       // About
       {

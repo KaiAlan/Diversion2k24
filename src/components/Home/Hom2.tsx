@@ -1,7 +1,7 @@
 import About from "../About/About";
 import img3 from "./img3.jpg";
 // To be used 
-function Home() {
+function Home2() {
   return (
     <div className="bg-white dark:bg-gray-800 mt-9">
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
@@ -41,4 +41,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home2;

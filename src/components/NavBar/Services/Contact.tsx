@@ -7,7 +7,7 @@ import { CardContent, Card } from "@/components/ui/card"
 
 const Contact = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-green-500">
+    <div className="flex items-center justify-center h-screen bg-green-500 bg-gradient-to-b from-emerald-200 to-green-50 min-h-screen w-full">
       <Card>
         <CardContent>
           <div className="space-y-8">

@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
+// Not to be used 
 // We can use array and mapping to lessen the code but i hadn't :)
 
 const Faq = () => {

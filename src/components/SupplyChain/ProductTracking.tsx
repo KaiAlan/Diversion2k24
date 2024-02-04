@@ -3,7 +3,12 @@ import { Button } from "@/components/ui/button";
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
 // import { Separator } from "@/components/ui/separator";
 
+import { useContext } from "react";
+import { SupplyChainContext, SupplyChainContextType } from "@/Context/SupplyChainContext";
+
 const ProductTracking = () => {
+
+  const { GetCropById, cropDetails } = useContext(SupplyChainContext) as SupplyChainContextType;
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <div className="bg-green-600 text-white dark:bg-green-800">
@@ -21,6 +26,19 @@ const ProductTracking = () => {
             <Button>Track</Button>
           </form>
         </section>
+        <button onClick={() => GetCropById(0)}>Test</button>
+        <div className="flex flex-col justify-center items-center">
+
+        {
+          cropDetails?.map((data) => (
+            <ul>
+
+              <li>{data} <br /></li>
+              <p>  </p>
+            </ul>
+          ))
+        }
+        </div>
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold dark:text-white">Supply Chain Transparency</h2>
           <p className="text-gray-600 dark:text-gray-400">

@@ -3,17 +3,25 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  cropname:string;
+  typeofcrop: string;
+  area: number;
+  cropquantity: number;
 };
 
+import { useContext } from "react";
+import { SupplyChainContext, SupplyChainContextType } from "@/Context/SupplyChainContext";
+
 const Transparency = () => {
+
+  const { connectWallet, currentAccount,AddCropDetails } = useContext(SupplyChainContext) as SupplyChainContextType;
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => AddCropDetails(data.cropname, data.typeofcrop, data.area, data.cropquantity);
   return (
     <div className="flex flex-col justify-center items-center bg-gradient-to-b from-emerald-200 to-green-50 min-h-screen w-full">
       <div className=" flex flex-col justify-center items-center h-screen w-full gap-5">
@@ -34,35 +42,28 @@ const Transparency = () => {
             <ScrollArea>
               <div className="flex flex-col justify-center items-start gap-3 h-3/5">
 
-            <label className="font-semibold text-xl">Example Field</label>
+            <label className="font-semibold text-xl">Crop Name</label>
             <input
               placeholder="Test"
-              {...register("example")}
+              {...register("cropname")}
               className="bg-white text-black p-1 pl-5 w-full h-12 border-1 rounded-sm"
             />
-            <label className="font-semibold text-xl pt-3">Amount</label>
-            <input
-              placeholder="Test Required"
-              className="bg-white text-normal text-black p-1 pl-5 w-full h-12 rounded-sm"
-              {...register("exampleRequired", { required: true })}
-            />
-            {errors.exampleRequired && <span>This field is required</span>}
-            <label className="font-semibold text-xl pt-3">Wallet Address</label>
+            <label className="font-semibold text-xl pt-3">Type of Crop</label>
             <input
               placeholder="Test"
-              {...register("example")}
+              {...register("typeofcrop")}
               className="bg-white text-black p-1 pl-5 w-full h-12 border-1 rounded-sm"
             />
-            <label className="font-semibold text-xl pt-3">Wallet Address</label>
+            <label className="font-semibold text-xl pt-3">Area</label>
             <input 
             placeholder="Test"
-            {...register("example")}
+            {...register("area")}
             className="bg-white text-black p-1 pl-5 w-full h-12 border-1 rounded-sm"
             />
-            <label className="font-semibold text-xl pt-3">Wallet Address</label>
+            <label className="font-semibold text-xl pt-3">Crop Quantity</label>
             <input 
             placeholder="Test"
-            {...register("example")}
+            {...register("cropquantity")}
             className="bg-white text-black p-1 pl-5 w-full h-12 border-1 rounded-sm"
             />
               </div>

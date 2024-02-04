@@ -11,10 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useContext } from "react";
+import { SupplyChainContext, SupplyChainContextType } from "@/Context/SupplyChainContext";
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  name: string;
+  location: string;
+  phoneNo: string;
 };
 
 declare var window: any;
@@ -39,42 +42,16 @@ const SelectIdentity = () => {
 };
 
 const Authentication = () => {
-  const [currentAccount, setCurrentAccount] = useState<string | undefined>();
+  const { connectWallet, currentAccount, registerFarmer, getFarmerDetails,AddCropDetails, balance, chainId, chainname, data } = useContext(SupplyChainContext) as SupplyChainContextType;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => registerFarmer(data.name, data.location, data.phoneNo);
 
-  const connectWallet = async () => {
-    try {
-      if (!window.ethereum) {
-        console.log("please install MetaMask");
-        return;
-      }
 
-      //we can do it using ethers.js
-      const provider = new ethers.BrowserProvider(window.ethereum);
-
-      // MetaMask requires requesting permission to connect users accounts
-      provider
-        .send("eth_requestAccounts", [])
-        .then((accounts) => {
-          if (accounts.length > 0) setCurrentAccount(accounts[0]);
-        })
-        .catch((e) => console.log(e));
-    } catch (error) {
-      console.log(error);
-
-      throw new Error("No ethereum object");
-    }
-  };
-
-//   useEffect(() => {
-//     connectWallet();
-//   }, [currentAccount]);
 
   return (
     <div className="flex flex-col justify-center items-center bg-gradient-to-b from-emerald-200 to-green-50 min-h-screen w-full">
@@ -103,23 +80,23 @@ const Authentication = () => {
 
             <SelectIdentity />
 
-            <label className="font-semibold text-xl">Example Field</label>
+            <label className="font-semibold text-xl">Name</label>
             <input
               placeholder="Test"
-              {...register("example")}
+              {...register("name")}
               className="bg-white text-black p-1 pl-5 w-full h-12 border-1 rounded-sm"
             />
-            <label className="font-semibold text-xl pt-3">Amount</label>
+            <label className="font-semibold text-xl pt-3">Location</label>
             <input
               placeholder="Test Required"
               className="bg-white text-normal text-black p-1 pl-5 w-full h-12 rounded-sm"
-              {...register("exampleRequired", { required: true })}
+              {...register("location")}
             />
-            {errors.exampleRequired && <span>This field is required</span>}
-            <label className="font-semibold text-xl pt-3">Wallet Address</label>
+            {errors.location && <span>This field is required</span>}
+            <label className="font-semibold text-xl pt-3">Phone No.</label>
             <input
               placeholder="Test"
-              {...register("example")}
+              {...register("phoneNo")}
               className="bg-white text-black p-1 pl-5 w-full h-12 border-1 rounded-sm"
             />
             <button
@@ -129,7 +106,16 @@ const Authentication = () => {
               Register Yourself
             </button>
           </form>
-          
+          {
+          chainId && (
+            <ul>
+              <li>chaind id: {chainId}</li>
+              <li>current account: {currentAccount}</li>
+              <li>chain name: {chainname}</li>
+              <li>balance: {balance}</li>
+            </ul>
+          )
+        }
         </div>
       </div>
     </div>

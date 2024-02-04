@@ -2,6 +2,7 @@ import FaqSection from "../Faq/Faq2";
 import Cards from "./Cards";
 import img4 from "./Farmer.png";
 import img from "./img.jpg";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -35,25 +36,34 @@ const About = () => {
             <div className="flex flex-wrap justify-center gap-10">
               <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 flex flex-col justify-center mr-20">
                 <div className="space-y-6">
-                  <div className="p-6 bg-white rounded-lg shadow-lg bg-transparent hover:bg-green-50  border border-green-600 transition duration-300 ease-in-out hover:scale-105">
-                    <h3 className="text-2xl font-bold">Collaboration</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mt-2">
-                      Make collaboration seamless with built-in code review
-                      tools.
-                    </p>
+                  <div className="p-6 bg-white cursor-pointer rounded-lg shadow-lg bg-transparent hover:bg-green-50  border border-green-600 transition duration-300 ease-in-out hover:scale-105">
+                    <Link to={"/prediction"}>
+                      <h3 className="text-2xl font-bold">Predictions</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mt-2">
+                        Applying machine learning model to agricultural that
+                        enables precise prediction of crop diseases.
+                      </p>
+                    </Link>
                   </div>
-                  <div className="p-6 bg-white rounded-lg shadow-lg bg-transparent hover:bg-green-50  border border-green-600 transition duration-300 ease-in-out hover:scale-105">
-                    <h3 className="text-2xl font-bold ">Automation</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mt-2">
-                      Automate your workflow with continuous integration.
-                    </p>
+
+                  <div className="p-6 bg-white cursor-pointer rounded-lg shadow-lg bg-transparent hover:bg-green-50  border border-green-600 transition duration-300 ease-in-out hover:scale-105">
+                    <Link to={"/transportaion"}>
+                      <h3 className="text-2xl font-bold ">Supply Chain</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mt-2">
+                        Technology enhances transparency and efficiency in the
+                        supply chain.
+                      </p>
+                    </Link>
                   </div>
-                  <div className="p-6 bg-white rounded-lg shadow-lg bg-transparent hover:bg-green-50  border border-green-600 transition duration-300 ease-in-out hover:scale-105">
-                    <h3 className="text-2xl font-bold">Scale</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mt-2">
-                      Deploy to the cloud with a single click and scale with
-                      ease.
-                    </p>
+
+                  <div className="p-6 bg-white cursor-pointer rounded-lg shadow-lg bg-transparent hover:bg-green-50  border border-green-600 transition duration-300 ease-in-out hover:scale-105">
+                    <Link to={"/community"}>
+                      <h3 className="text-2xl font-bold">Community</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mt-2">
+                        Fostering a strong sense of community promotes
+                        collaboration.
+                      </p>
+                    </Link>
                   </div>
                 </div>
               </div>
