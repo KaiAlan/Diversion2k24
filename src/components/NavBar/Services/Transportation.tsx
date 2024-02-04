@@ -79,7 +79,7 @@ const Transportation = () => {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Blockchain Integration</CardTitle>
+              <CardTitle>Transfer Your Crop</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -87,7 +87,10 @@ const Transportation = () => {
               </p>
             </CardContent>
             <CardFooter>
+              <Link to="/transportaion/tnasfer-crop">
+
               <Button size="sm">Enter</Button>
+              </Link>
             </CardFooter>
           </Card>
           <Card>

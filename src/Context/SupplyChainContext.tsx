@@ -9,6 +9,7 @@ export type SupplyChainContextType = {
     getFarmerDetails: () => Promise<void>;
     AddCropDetails: (cropname:string, typeofcrop: string, area: number, cropquantity: number) => void;
     GetCropById: (id: number) => void;
+    TransferCrop : (address: string, id:number, quantity:number) => void;
     currentAccount: string | undefined;
     balance: string | undefined;
     chainId: number | undefined;
@@ -154,10 +155,26 @@ export const SupplyChainProvider: React.FC<{ children: ReactNode }> = ({ childre
             console.log(error);
           }
     }
+    const TransferCrop = async(address: string, id:number, quantity:number) => {
+        try {
+            if(!window.ethereum){
+              console.log("Please Install Metamask");
+              return
+            }
+        
+            const SupplyChainContract = await getEthereumContract();
+        
+            const value = await SupplyChainContract.changeOwner(address, id, quantity).then((res) => console.log(res));
+        
+            console.log(value);
+          } catch (error) {
+            console.log(error);
+          }
+    }
 
     return (
         <SupplyChainContext.Provider
-        value={{ connectWallet,registerFarmer, getFarmerDetails,AddCropDetails, GetCropById, currentAccount, balance, chainId, chainname, data, cropDetails }}>
+        value={{ connectWallet,registerFarmer, getFarmerDetails,AddCropDetails, GetCropById, TransferCrop, currentAccount, balance, chainId, chainname, data, cropDetails }}>
            {children}
        </SupplyChainContext.Provider>
    );

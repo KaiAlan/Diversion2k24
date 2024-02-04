@@ -17,6 +17,7 @@ import Authentication from "@/components/SupplyChain/Authentication";
 import Home2 from '@/components/Home/Hom2';
 import Home3 from "@/components/Home/Home3";
 import Home from "@/components/Home/Home";
+import TransferCrop from "@/components/SupplyChain/TransferCrop";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
           {
             path: "/transportaion/authentication",
             element: <Authentication />,
+          },
+          {
+            path: "/transportaion/tnasfer-crop",
+            element: <TransferCrop />,
           },
         ]
       },
